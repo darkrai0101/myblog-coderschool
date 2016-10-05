@@ -9,9 +9,9 @@
 
 Submitted by: **Nguyen Van Trung**
 
-Time spent: **12** hours spent in total
+Time spent: **4** hours spent in total
 
-URL: **Insert your Heroku URL here**
+URL: **https://warm-woodland-16919.herokuapp.com/**
 
 ## User Stories
 
