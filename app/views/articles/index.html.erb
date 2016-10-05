@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <nav class="navbar navbar-light bg-faded">
+    <a class="navbar-brand" href="#">MyBlog</a>
+     <ul class="nav navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/articles">Articles</a>
+        </li>
+     </ul>
+     <%= form_tag(articles_path, :method => "get", id: "search-form", class: "form-inline pull-xs-right") do %>
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Articles" %>
+      <%= submit_tag "Search", class: "btn btn-outline-success" %>
+     <% end %>
+  </nav>  
+  <p></p>
+  <div class="jumbotron">
+      <h1>MyBlog</h1>
+      <h3>my first example ruby and rails for coderschool</h3>
+  </div>
+  <% if @articles.present? %>
+    <div class="row">
+      <div class="col-sm-12">
+        <% @articles.each do |article| %>
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">
+                <%= link_to article.title, article %>
+              </h4>
+              <p class="card-text">
+                <%= @markdown.render(article.body).html_safe %>
+              </p>
+            </div>
+            <div class="card-footer">
+              <%= link_to "Edit", edit_article_path(article), class: 'btn btn-outline-success' %>
+              
+              <%= link_to 'Del', article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-warning' %>
+              <i class="pull-xs-right"><%= article.view %> view</i>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <p>There are no articles containing <%= params[:search] %>.</p>
+  <% end %>
+
+  <br/>
+  <center>        
+    <%= link_to 'New Article', new_article_path, class: "btn btn-outline-info btn-lg" %>
+  </center>
+  <p></p>
+  <p></p>
+</div>

@@ -1,0 +1,5 @@
+// Custom bootstrap variables must be set or imported before bootstrap itself.
+@import "bootstrap";
+.container{
+	max-width: 720px
+}
