@@ -1,10 +1,5 @@
 # Pre-work - *MyBlog*
 
-> HINT: Please
-> - include this README.md in your project and fill out the information. 
-> - remove the `README.rdoc` file that Rails generates. 
-> - remove all the HINT blocks in this file.
-
 **MyBlog** is a Ruby on Rails blog application.
 
 Submitted by: **Nguyen Van Trung**
