@@ -18,7 +18,7 @@
   <p></p>
   <div class="jumbotron">
       <h1>MyBlog</h1>
-      <h3>my first example ruby and rails for coderschool</h3>
+      <h3>My first example ruby and rails for CoderSchool</h3>
   </div>
   <% if @articles.present? %>
     <div class="row">
@@ -37,7 +37,7 @@
               <%= link_to "Edit", edit_article_path(article), class: 'btn btn-outline-success' %>
               
               <%= link_to 'Del', article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-warning' %>
-              <i class="pull-xs-right"><%= article.view %> view</i>
+              <i class="pull-xs-right"><%= article.comments.count %> comment &nbsp;&nbsp; <%= article.view %> view</i>
             </div>
           </div>
         <% end %>
