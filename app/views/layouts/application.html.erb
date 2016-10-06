@@ -2,13 +2,36 @@
 <html>
 <head>
   <title>Blog</title>
+  <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script><!-- Tether for Bootstrap --> 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tags %>  
 </head>
 <body>
 
-<%= yield %>
-
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <nav class="navbar navbar-light bg-faded">
+	<a class="navbar-brand" href="#">MyBlog</a>
+	 <ul class="nav navbar-nav">
+	 	<li class="nav-item <% if(current_page?('/'))%> active <% end %>">
+	      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+	    </li>
+	    <li class="nav-item <% if(!current_page?('/'))%> active <% end %>">
+	      <a class="nav-link" href="/articles">Articles</a>
+	    </li>
+	 </ul>
+	 <%= form_tag(articles_path, :method => "get", id: "search-form", class: "form-inline pull-xs-right") do %>
+		<%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Articles" %>
+		<%= submit_tag "Search", class: "btn btn-outline-success" %>
+	 <% end %>		 
+  </nav>
+  <p></p>
+  <div class="jumbotron">
+	<h1>MyBlog</h1>
+	<h3>My first example ruby and rails for CoderSchool</h3>	
+  </div>
+  <%= yield %>
+</div>
 </body>
 </html>
